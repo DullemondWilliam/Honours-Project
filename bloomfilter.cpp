@@ -19,7 +19,6 @@ BloomFilter::BloomFilter( int numBits, int numHash ):
     qInfo() << " Number of Hash bits: " << m_numHash;
 
     m_filter = QBitArray( m_numBits, 0 );
-
     m_fraction = m_numBits / qPow (2,numberOfBits);
 }
 
