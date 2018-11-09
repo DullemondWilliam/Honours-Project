@@ -12,8 +12,35 @@ int SetDifference::estimateCount( const BloomFilter& set )
     return n;
 }
 
+int SetDifference::estimateCount( const CountBloomFilter& set )
+{
+    int count = 0;
+    for(char i: set.m_filter)
+        count += i;
+    return count / set.m_numHash;
+}
+
+
 // Returned Value needs to be deleted after use
-BloomFilter* SetDifference::filterSub( const BloomFilter& set1, const BloomFilter& set2 )
+BloomFilter* SetDifference::filterSub( const BloomFilter& setA, const BloomFilter& setB )
+{
+    if(setA.m_numBits != setB.m_numBits || setA.m_numHash != setB.m_numHash)
+    {
+        qDebug() << "Invalid BloomFilters";
+        return nullptr;
+    }
+
+    BloomFilter* output = new BloomFilter(setA.m_numBits, setA.m_numHash);
+
+    for(int i=0; i<setA.m_numBits; ++i)
+        output->m_filter.setBit(i, (setA.m_filter.at(i) - setB.m_filter.at(i)) > 0 ? 1 : 0);
+//        output->m_filter.setBit(i, (setA.m_filter.at(i) & (!setB.m_filter.at(i))));
+
+    return output;
+}
+
+// Returned Value needs to be deleted after use
+CountBloomFilter* SetDifference::filterSub( const CountBloomFilter& set1, const CountBloomFilter& set2 )
 {
     if(set1.m_numBits != set2.m_numBits || set1.m_numHash != set2.m_numHash)
     {
@@ -21,12 +48,12 @@ BloomFilter* SetDifference::filterSub( const BloomFilter& set1, const BloomFilte
         return nullptr;
     }
 
-    BloomFilter* output = new BloomFilter(set1.m_numBits, set1.m_numHash);
+    CountBloomFilter* output = new CountBloomFilter(set1.m_numBits, set1.m_numHash);
 
-    for(int i=0; i<set1.m_numBits; ++i)
-    {
-        output->m_filter.setBit(i, (set1.m_filter.at(i) - set2.m_filter.at(i)) > 0 ? 1 : 0);
-    }
+//    for(int i=0; i<set1.m_numBits; ++i)
+//    {
+//        output->m_filter.setBit(i, (set1.m_filter.at(i) - set2.m_filter.at(i)) > 0 ? 1 : 0);
+//    }
     return output;
 }
 
@@ -48,6 +75,7 @@ SetDifference::Answer SetDifference::setDifference( QList<QString> set1, QList<Q
     answer.time = time.elapsed();
     return answer;
 }
+
 
 SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const BloomFilter& set2 )
 {

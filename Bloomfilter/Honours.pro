@@ -20,14 +20,16 @@ SOURCES += \
     MurmurHash3.cpp \
     SetDifference.cpp \
     Bloomfilter.cpp \
-    CountBloomfilter.cpp
+    CountBloomfilter.cpp \
+    Controller.cpp
 
 
 HEADERS += \
     MurmurHash3.h \
     SetDifference.h \
     CountBloomfilter.h \
-    Bloomfilter.h
+    Bloomfilter.h \
+    Controller.h
 
 SUBDIRS += \
     Honours.pro

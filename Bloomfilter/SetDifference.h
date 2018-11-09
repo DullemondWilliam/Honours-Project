@@ -2,6 +2,7 @@
 #define SETDIFFERENCE_H
 
 #include "Bloomfilter.h"
+#include "CountBloomFilter.h"
 #include <QList>
 #include <QPair>
 class SetDifference
@@ -16,7 +17,12 @@ public:
     };
 
     static int estimateCount( const BloomFilter& set );
+    static int estimateCount( const CountBloomFilter& set );
+
     static BloomFilter* filterSub( const BloomFilter& set1, const BloomFilter& set2 );
+    static CountBloomFilter* filterSub( const CountBloomFilter& set1, const CountBloomFilter& set2 );
+
+
     static Answer setDifference( QList<QString> set1, QList<QString> set2 );
 
     static SetDifference::Answer methodOne( const BloomFilter& set1, const BloomFilter& set2 );

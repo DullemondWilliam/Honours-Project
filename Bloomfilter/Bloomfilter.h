@@ -17,11 +17,9 @@ public:
     bool addElement( const QString& add );
 
     QByteArray xorByteArray( const QByteArray& a1, const QByteArray& a2 );
-    quint64 hashToNumber( const QByteArray& a1 );
     void  printFilter();
 
     QBitArray m_filter;
-    QVector<QByteArray> m_hashSeeds;
 
     int m_numBits;
     int m_numHash;

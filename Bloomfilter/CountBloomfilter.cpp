@@ -15,8 +15,8 @@ CountBloomFilter::CountBloomFilter( int numBits, int numHash ):
     m_numHash( numHash ),
     m_numElements( 0 )
 {
-    qInfo() << " Number of Storage bits: " << m_numBits;
-    qInfo() << " Number of Hash bits: " << m_numHash;
+//    qInfo() << " Number of Storage bits: " << m_numBits;
+//    qInfo() << " Number of Hash bits: " << m_numHash;
 
     m_filter = QByteArray( m_numBits, 0 );
 
@@ -51,7 +51,7 @@ int CountBloomFilter::addElement( QString add )
 {
     uint32_t num;
     int lowestNumber = -1;
-    // Create K hashes
+
     for( int i=0; i < m_numHash; ++i )
     {
         MurmurHash3_x86_32( add.toLocal8Bit().data(), add.size(), i, &num );
