@@ -68,10 +68,6 @@ SetDifference::Answer SetDifference::setDifference( QList<QString> set1, QList<Q
         if(!set2.contains(a))
             answer.set1 += 1;
 
-    for(QString a : set2)
-        if(!set1.contains(a))
-            answer.set2 += 1;
-
     answer.time = time.elapsed();
     return answer;
 }
@@ -81,19 +77,32 @@ SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const B
 {
     QTime time;
     time.start();
-
     SetDifference::Answer answer;
 
-    BloomFilter* diff1 = filterSub(set1, set2);
-    BloomFilter* diff2 = filterSub(set2, set1);
+    // Find Ratio
+    double ratio = 0;
+    for(int i=0; i < set1.m_filter.size(); ++i)
+        ratio += set1.m_filter[i];
+    ratio = (set1.m_numElements * set1.m_numHash) / ratio;
 
-    answer.set1 = estimateCount(*diff1);
-    answer.set2 = estimateCount(*diff2);
+    //printf("%d x %d = %lf ~ %lf\n", set1.m_numElements, set1.m_numHash, ratio, ratio * 1.5);
+    ratio = ratio * ratio;
+
+    // Find set Difference
+    BloomFilter* diff1 = filterSub(set1, set2);
+
+    // Count The Difference count
+    double setBits = 0;
+    for(int i=0; i < diff1->m_filter.size(); ++i)
+        setBits += diff1->m_filter[i];
+
+    //printf("(%lf * %lf)/%d = %lf\n", setBits, ratio, set1.m_numHash, (setBits * ratio)/ (double)set1.m_numHash);
+
+    //Set Answers
+    answer.set1 = (setBits * ratio)/ (double)set1.m_numHash;
+    answer.time = time.elapsed();
 
     delete diff1;
-    delete diff2;
-
-    answer.time = time.elapsed();
     return answer;
 }
 
@@ -108,7 +117,6 @@ SetDifference::Answer SetDifference::methodTwo( const QList<QString>& set1, Bloo
         if( !set2.testElement(item) )
             answer.set1 += 1;
 
-    answer.set2 = std::abs((set1.size() - estimateCount(set2)) - answer.set1);
     answer.time = time.elapsed();
     return answer;
 }

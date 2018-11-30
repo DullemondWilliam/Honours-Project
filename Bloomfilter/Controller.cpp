@@ -57,25 +57,26 @@ void Controller::testCountBloomFilter(int argc, char *argv[])
 // -b filterSize Set1 Set2 difference hashes
 void Controller::testCommBloomFilter(int argc, char *argv[])
 {
+    ///////////////////////////////////////////////////////////////////////////
+    // ./honours -b filterSize set1Size set2Size hashSize
+    // Collect User
     if(argc < 6)
     {
         cout << "Give me some varibles you wanker" << endl;
         return;
     }
-
     int filterSize = stoi(argv[2]);
     int set1Size = stoi(argv[3]);
     int set2Size = stoi(argv[4]);
     int set1Diff = stoi(argv[5]);
-    int hashSize = 1;
-    if(!strcmp( argv[6],"-h"))
-        hashSize = Controller::optHashes(max(set1Size, set2Size), filterSize);
-    else
-        hashSize = stoi(argv[6]);
+    int hashSize = strcmp(argv[6],"-h") ? stoi(argv[6]) :
+        Controller::optHashes(max(set1Size, set2Size), filterSize);
 
-    cout << "Filter Size: " << filterSize << " Set1: " << set1Size << " Set2: "
-         << set2Size << " SetDiff: " << set1Diff << " Hashes: " << hashSize << endl;
+//    cout << "Filter Size: " << filterSize << " Set1: " << set1Size << " Set2: "
+//         << set2Size << " SetDiff: " << set1Diff << " Hashes: " << hashSize << endl;
 
+    ///////////////////////////////////////////////////////////////////////////
+    // Define variables and fill sets and BloomFilters
     QList<QString> set1;
     QList<QString> set2;
     BloomFilter bf1 = BloomFilter(filterSize, hashSize);
@@ -83,28 +84,29 @@ void Controller::testCommBloomFilter(int argc, char *argv[])
 
     for(int i=0; i<max(set1Size,set2Size); ++i)
     {
-        QString a = QString::fromStdString(i < set1Diff ? to_string(i)+"a" : to_string(i));
-        QString b = QString::fromStdString(i < set1Diff ? to_string(i)+"b" : to_string(i));
-
         if(i < set1Size)
         {
+            QString a = QString::fromStdString(i < set1Diff ? to_string(i)+"a" : to_string(i));
             set1.append(a);
             bf1.addElement(a);
         }
         if(i < set2Size)
         {
+            QString b = QString::fromStdString(i < set1Diff ? to_string(i)+"b" : to_string(i));
             set2.append(b);
             bf2.addElement(b);
         }
     }
+    ///////////////////////////////////////////////////////////////////////////
+    // Find Differences through each method and Print
 
     SetDifference::Answer ans1 = SetDifference::setDifference(set1, set2);
     SetDifference::Answer ans2 = SetDifference::methodOne(bf1, bf2);
     SetDifference::Answer ans3 = SetDifference::methodTwo(set1, bf2);
 
-    cout << "Real Set    One: " << ans1.set1 << "\t Set Two: " << ans1.set2 << "\tTime: " << ans1.time << endl;
-    cout << "TestOne Set One: " << ans2.set1 << "\t Set Two: " << ans2.set2 << "\tTime: " << ans2.time << endl;
-    cout << "TestTwo Set One: " << ans3.set1 << "\t Set Two: " << ans3.set2 << "\tTime: " << ans3.time << endl;
+    cout << "Real Diff: " << ans1.set1 << "\tTime: " << ans1.time << endl;
+    cout << "Method One Diff: " << ans2.set1 << "\tTime: " << ans2.time << endl;
+    cout << "Method Two Diff: " << ans3.set1 << "\tTime: " << ans3.time << endl;
 
 }
 

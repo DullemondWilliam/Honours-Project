@@ -47,7 +47,7 @@ bool BloomFilter::addElement( const QString& add )
 {
     bool included = true;
     uint32_t num;
-
+    m_numElements ++;
     // Create K hashes
     for( int i=0; i < m_numHash; ++i )
     {

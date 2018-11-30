@@ -29,15 +29,15 @@ while 1:
     n = float(2 ** (len(lineE) + 12))
     print(n)
     if lineA[-1] < 50:
-        lineA = np.append(lineA, (callExe(2000000, n)/n)*100)
+        lineA = np.append(lineA, (callExe(20000000, n)/n)*100)
     if lineB[-1] < 50:
-        lineB = np.append(lineB, (callExe(4000000, n)/n)*100)
+        lineB = np.append(lineB, (callExe(40000000, n)/n)*100)
     if lineC[-1] < 50:
-        lineC = np.append(lineC, (callExe(6000000, n)/n)*100)
+        lineC = np.append(lineC, (callExe(60000000, n)/n)*100)
     if lineD[-1] < 50:
-        lineD = np.append(lineD, (callExe(8000000, n)/n)*100)
+        lineD = np.append(lineD, (callExe(80000000, n)/n)*100)
     if lineE[-1] < 50:
-        lineE = np.append(lineE, (callExe(10000000, n)/n)*100)
+        lineE = np.append(lineE, (callExe(100000000, n)/n)*100)
         print(lineE[-1])
     else:
         break
@@ -52,11 +52,11 @@ while 1:
 print(len(xAxis[0:len(lineA)]))
 print(len(str(lineA)))
 
-plt.plot(xAxis[:len(lineA)], lineA, label="2,000,000")  # plotting the points
-plt.plot(xAxis[:len(lineB)], lineB, label="4,000,000")  # plotting the points
-plt.plot(xAxis[:len(lineC)], lineC, label="6,000,000")  # plotting the points
-plt.plot(xAxis[:len(lineD)], lineD, label="8,000,000")  # plotting the points
-plt.plot(xAxis[:len(lineE)], lineE, label="19,000,000")  # plotting the points
+plt.plot(xAxis[:len(lineA)], lineA, label="20,000,000")  # plotting the points
+plt.plot(xAxis[:len(lineB)], lineB, label="40,000,000")  # plotting the points
+plt.plot(xAxis[:len(lineC)], lineC, label="60,000,000")  # plotting the points
+plt.plot(xAxis[:len(lineD)], lineD, label="80,000,000")  # plotting the points
+plt.plot(xAxis[:len(lineE)], lineE, label="100,000,000")  # plotting the points
 plt.title("Bloom Filter Failure Rate")
 plt.xlabel("Elements Added")  # naming the x axis
 plt.ylabel("Percent of Overlapping Elements(%)")  # naming the y axis
@@ -68,7 +68,6 @@ plt.grid(which='major', linestyle='dashed', linewidth='0.5', color='black')  # C
 plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black', alpha=.5)  # Customize the minor grid
 
 plt.show()
-
 
 
 # createCSV("1000000", ["1", "32"], "10000", "1000", "100", 0)
