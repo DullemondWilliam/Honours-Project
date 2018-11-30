@@ -19,7 +19,7 @@ def callBloomFilter(filterSize, hashes, set1Size, set2Diff, setDiff):
 
 def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
     # Determine Graph Labels and Title
-    yLabel = "Time" if measuring == 1 else "Difference"
+    yLabel = "Time" if measuring == 1 else "deviation from Difference"
     xLabel = ""
     arr = []
     if type(filterSize) == list:
@@ -63,9 +63,9 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
         info = [i, result[0 + measuring], result[2 + measuring], result[4 + measuring]]
         writer.writerow(info)
 
-        regAxis.append(result[0 + measuring])
-        meth1.append(result[2 + measuring])
-        meth2.append(result[4 + measuring])
+        regAxis.append(result[0 + measuring] if measuring else 0)
+        meth1.append(result[2 + measuring] if measuring else int(result[0]) - int(result[2]))
+        meth2.append(result[4 + measuring] if measuring else int(result[0]) - int(result[4]))
 
     plt.plot(xAxis, regAxis, label="regAxis")  # plotting the points
     plt.plot(xAxis, meth1, label="method 1")  # plotting the points
@@ -85,7 +85,7 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
 
 # createCSV("1000000", ["1", "32"], "10000", "1000", "100", 0)
 # createCSV("100000", "-h", "10000", "10000", ["100", "10000"], 0)
-createCSV("1000000", "-h", ["1000", "10000"], "0", "1000", 0)
+createCSV("100000", "3", ["1000", "10000"], "0", "1000", 0)
 
 
 # createCSV(filterSize, hashes, set1Size, set2diff, setDiff, measuring):
