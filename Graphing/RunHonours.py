@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 import re
 import csv
+import time
 
 DATA_POINTS = 20
 
@@ -19,7 +20,7 @@ def callBloomFilter(filterSize, hashes, set1Size, set2Diff, setDiff):
 
 def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
     # Determine Graph Labels and Title
-    yLabel = "Time" if measuring == 1 else "deviation from Difference"
+    yLabel = "Time" if measuring == 1 else "Accuracy %"
     xLabel = ""
     arr = []
     if type(filterSize) == list:
@@ -30,10 +31,10 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
         xLabel = "Hashes"
     elif type(set1Size) == list:
         arr = set1Size
-        xLabel = "Set One Size"
+        xLabel = "Set Size"
     elif type(set2SizeDiff) == list:
         arr = set2SizeDiff
-        xLabel = "Set Two Size"
+        xLabel = "Set Size Diff"
     elif type(setDiff) == list:
         arr = setDiff
         xLabel = "Difference Count"
@@ -63,30 +64,78 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
         info = [i, result[0 + measuring], result[2 + measuring], result[4 + measuring]]
         writer.writerow(info)
 
-        regAxis.append(result[0 + measuring] if measuring else 0)
-        meth1.append(result[2 + measuring] if measuring else int(result[0]) - int(result[2]))
-        meth2.append(result[4 + measuring] if measuring else int(result[0]) - int(result[4]))
+        regAxis.append(0)
+        meth1.append(result[2 + measuring] if measuring else (1-(float(result[2])/float(i if type(setDiff) == list else result[measuring]))) * 100)
+        meth2.append(result[4 + measuring] if measuring else (1-(float(result[4])/float(i if type(setDiff) == list else result[measuring]))) * 100)
+        time.sleep(1)
+
+    fig, ax = plt.subplots()
 
     plt.plot(xAxis, regAxis, label="regAxis")  # plotting the points
     plt.plot(xAxis, meth1, label="method 1")  # plotting the points
     plt.plot(xAxis, meth2, label="method 2")  # plotting the points
+
+    desc = ("" if type(filterSize) == list else "M: " + filterSize + "\n") + \
+           ("" if type(hashes) == list else "H: " + ("optimal" if hashes == '-h' else hashes) + "\n") + \
+           ("" if type(set1Size) == list or type(set2SizeDiff) == list else "|A|: " + set1Size + "\n" + \
+                                                "|B|: " + str(int(set1Size) - int(set2SizeDiff)) + "\n") + \
+           ("" if type(setDiff) == list else "|C|: " + setDiff + "\n")
+    desc = desc[:-1]
 
     plt.title(title)
     plt.xlabel(xLabel)  # naming the x axis
     plt.ylabel(yLabel)  # naming the y axis
     plt.legend()
 
-    plt.show()
+    props = dict(boxstyle='round', facecolor='white', alpha=0.75)
+    plt.text(0.30, 0.98, desc, transform=ax.transAxes, fontsize=10, verticalalignment='top', bbox=props)
+
+    plt.minorticks_on()
+    plt.grid(which='major', linestyle='dashed', linewidth='0.5', color='black')  # Customize the major grid
+    plt.grid(which='minor', linestyle=':', linewidth='0.5', color='black', alpha=.5)  # Customize the minor grid
+
+    # plt.show()
     plt.savefig("results//" + title + ".png")
     plt.gcf().clear()
-
+    fig.clear()
+    ax.clear()
     # plt.close()
-# createCSV(["1000", "1000000"], "3", "1000", "1000", "600", 0)
 
-# createCSV("1000000", ["1", "32"], "10000", "1000", "100", 0)
-# createCSV("100000", "-h", "10000", "10000", ["100", "10000"], 0)
-createCSV("100000", "3", ["1000", "10000"], "0", "1000", 0)
+# Method One
 
+
+# # # Accuracy over increase in Difference
+# createCSV("100000", "-h", "10000", 0, ["1", "10000"], 0)
+# #
+# # # Accuracy over increase in Number of Hashes
+# createCSV("100000", ["1", "20"], "10000", "0", "1000", 0)
+# createCSV("100000", ["1", "110"], "10000", "0", "1000", 0)
+# #
+# # # Accuracy over increase in Filter Size(M)
+# createCSV(["1000", "100000"], "-h", "10000", "0", "1000", 0)
+# createCSV(["1000", "10000"], "-h", "10000", "0", "1000", 0)
+# #
+# # # Time over increase in Hashes (K)
+# createCSV("100000", ["1", "500"], "10000", "0", "1000", 1)
+# #
+# # # Time over increase in Filter Size(M)
+# createCSV(["10000", "1000000"], "-h", "100000", "0", "10000", 1)
+# #
+# # # Time over increase in |A| and |B|
+createCSV("100000", "-h", ["1000", "1000000"], "0", "1000", 1)
+
+
+
+#####################################################
+# # # Accuracy over increase in |A| and |B|
+# createCSV("100000", "-h", ["100", "10000"], "0", "100", 0)
+
+
+
+# createCSV(["10000", "1000000"], "3", "1000", "0", "600", 0)
+# createCSV("1000000", ["1", "500"], "10000", "0", "10000", 0)
+# createCSV("100000", "-h", ["1000", "10000"], "0", "1000", 0)
+# createCSV("100000", "-h", "10000", ["-100", "100"], "1000", 0)
 
 # createCSV(filterSize, hashes, set1Size, set2diff, setDiff, measuring):
 

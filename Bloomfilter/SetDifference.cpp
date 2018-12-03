@@ -79,15 +79,6 @@ SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const B
     time.start();
     SetDifference::Answer answer;
 
-    // Find Ratio
-    double ratio = 0;
-    for(int i=0; i < set1.m_filter.size(); ++i)
-        ratio += set1.m_filter[i];
-    ratio = (set1.m_numElements * set1.m_numHash) / ratio;
-
-    //printf("%d x %d = %lf ~ %lf\n", set1.m_numElements, set1.m_numHash, ratio, ratio * 1.5);
-    ratio = ratio * ratio;
-
     // Find set Difference
     BloomFilter* diff1 = filterSub(set1, set2);
 
@@ -96,10 +87,16 @@ SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const B
     for(int i=0; i < diff1->m_filter.size(); ++i)
         setBits += diff1->m_filter[i];
 
-    //printf("(%lf * %lf)/%d = %lf\n", setBits, ratio, set1.m_numHash, (setBits * ratio)/ (double)set1.m_numHash);
+    double k = set1.m_numHash;
+    double m = set1.m_numBits;
+    double n = set2.m_numElements;
+
+    double x = setBits / m;
+
+    int u = round((log(pow(((m - 1.0)/m),(k* n)) - x) - k*n*log((m - 1.0)/m))/(k*log((m - 1.0)/m)));
 
     //Set Answers
-    answer.set1 = (setBits * ratio)/ (double)set1.m_numHash;
+    answer.set1 = u;
     answer.time = time.elapsed();
 
     delete diff1;
