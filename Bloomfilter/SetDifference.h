@@ -16,11 +16,8 @@ public:
       int bytesComm = 0;
     };
 
-    static int estimateCount( const BloomFilter& set );
-    static int estimateCount( const CountBloomFilter& set );
-
-    static BloomFilter* filterSub( const BloomFilter& set1, const BloomFilter& set2 );
-    static CountBloomFilter* filterSub( const CountBloomFilter& set1, const CountBloomFilter& set2 );
+    static BloomFilter* filterSubtraction( const BloomFilter& set1, const BloomFilter& set2 );
+    static CountBloomFilter* filterSubtraction( const CountBloomFilter& set1, const CountBloomFilter& set2 );
 
 
     static Answer setDifference( QList<QString> set1, QList<QString> set2 );
@@ -28,7 +25,8 @@ public:
     static SetDifference::Answer methodOne( const BloomFilter& set1, const BloomFilter& set2 );
     static SetDifference::Answer methodTwo( const QList<QString>& setContent, BloomFilter& set2 );
 
-
+    static SetDifference::Answer methodOne( const CountBloomFilter& set1, const CountBloomFilter& set2 );
+    static SetDifference::Answer methodTwo( const QList<QString>& setContent, const CountBloomFilter& set2 );
 };
 
 #endif // SETDIFFERENCE_H

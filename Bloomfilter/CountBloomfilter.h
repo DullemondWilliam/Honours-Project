@@ -14,12 +14,12 @@ public:
     CountBloomFilter( int numBits, int numHash );
     ~CountBloomFilter();
 
-    int testElement( QString test );
+    int testElement( QString test )const;
     int addElement( QString add );
     int removeElement( QString remove );
 
     QByteArray xorByteArray( const QByteArray& a1, const QByteArray& a2 );
-    void  printFilter();
+    void  printFilter() const;
 
     QByteArray m_filter;
 

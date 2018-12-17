@@ -14,8 +14,6 @@ class Controller
         //Test For Set Difference Accuracy
         static void testCommBloomFilter(int argc, char *argv[]);
         static void testCommCountBloomFilter(int argc, char *argv[]);
-
-
 };
 
 #endif // CONTROLLER_H

@@ -5,28 +5,13 @@
 #include <QException>
 #include <QDebug>
 
-int SetDifference::estimateCount( const BloomFilter& set )
-{
-    int x = set.m_filter.count(1);
-    int n = -1.0 * ((float)set.m_numBits/(float)set.m_numHash) * qLn(1 - ((float)x/(float)set.m_numBits));
-    return n;
-}
-
-int SetDifference::estimateCount( const CountBloomFilter& set )
-{
-    int count = 0;
-    for(char i: set.m_filter)
-        count += i;
-    return count / set.m_numHash;
-}
-
-
 // Returned Value needs to be deleted after use
-BloomFilter* SetDifference::filterSub( const BloomFilter& setA, const BloomFilter& setB )
+// Returns A-B
+BloomFilter* SetDifference::filterSubtraction( const BloomFilter& setA, const BloomFilter& setB )
 {
     if(setA.m_numBits != setB.m_numBits || setA.m_numHash != setB.m_numHash)
     {
-        qDebug() << "Invalid BloomFilters";
+        qDebug() << "Uncompatible BloomFilters";
         return nullptr;
     }
 
@@ -34,13 +19,13 @@ BloomFilter* SetDifference::filterSub( const BloomFilter& setA, const BloomFilte
 
     for(int i=0; i<setA.m_numBits; ++i)
         output->m_filter.setBit(i, (setA.m_filter.at(i) - setB.m_filter.at(i)) > 0 ? 1 : 0);
-//        output->m_filter.setBit(i, (setA.m_filter.at(i) & (!setB.m_filter.at(i))));
 
     return output;
 }
 
 // Returned Value needs to be deleted after use
-CountBloomFilter* SetDifference::filterSub( const CountBloomFilter& set1, const CountBloomFilter& set2 )
+// Returns A-B
+CountBloomFilter* SetDifference::filterSubtraction( const CountBloomFilter& set1, const CountBloomFilter& set2 )
 {
     if(set1.m_numBits != set2.m_numBits || set1.m_numHash != set2.m_numHash)
     {
@@ -50,18 +35,17 @@ CountBloomFilter* SetDifference::filterSub( const CountBloomFilter& set1, const 
 
     CountBloomFilter* output = new CountBloomFilter(set1.m_numBits, set1.m_numHash);
 
-//    for(int i=0; i<set1.m_numBits; ++i)
-//    {
-//        output->m_filter.setBit(i, (set1.m_filter.at(i) - set2.m_filter.at(i)) > 0 ? 1 : 0);
-//    }
+    for(int i=0; i<set1.m_numBits; ++i)
+        output->m_filter[i] = (set1.m_filter[i] - set2.m_filter[i] > 0) ? set1.m_filter[i] - set2.m_filter[i] : 0;
+
     return output;
 }
 
+// Base line template for Calculating differences
 SetDifference::Answer SetDifference::setDifference( QList<QString> set1, QList<QString> set2 )
 {
     QTime time;
     time.start();
-
     SetDifference::Answer answer;
 
     for(QString a : set1)
@@ -72,7 +56,7 @@ SetDifference::Answer SetDifference::setDifference( QList<QString> set1, QList<Q
     return answer;
 }
 
-
+// Method One for Regular BloomFilters
 SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const BloomFilter& set2 )
 {
     QTime time;
@@ -80,9 +64,9 @@ SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const B
     SetDifference::Answer answer;
 
     // Find set Difference
-    BloomFilter* diff1 = filterSub(set1, set2);
+    BloomFilter* diff1 = filterSubtraction(set1, set2);
 
-    // Count The Difference count
+    // Count The set bits
     double setBits = 0;
     for(int i=0; i < diff1->m_filter.size(); ++i)
         setBits += diff1->m_filter[i];
@@ -93,6 +77,7 @@ SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const B
 
     double x = setBits / m;
 
+    // Do the Math
     int u = round((log(pow(((m - 1.0)/m),(k* n)) - x) - k*n*log((m - 1.0)/m))/(k*log((m - 1.0)/m)));
 
     //Set Answers
@@ -103,16 +88,58 @@ SetDifference::Answer SetDifference::methodOne( const BloomFilter& set1, const B
     return answer;
 }
 
+// Method Two for Regular BloomFilters
 SetDifference::Answer SetDifference::methodTwo( const QList<QString>& set1, BloomFilter& set2 )
 {
     QTime time;
     time.start();
-
     SetDifference::Answer answer;
 
     for(QString item : set1)
         if( !set2.testElement(item) )
             answer.set1 += 1;
+
+    answer.time = time.elapsed();
+    return answer;
+}
+
+SetDifference::Answer SetDifference::methodOne( const CountBloomFilter& set1, const CountBloomFilter& set2 )
+{
+    QTime time;
+    time.start();
+    SetDifference::Answer answer;
+
+    // Find set Difference
+    CountBloomFilter* diff1 = SetDifference::filterSubtraction(set1, set2);
+
+    answer.set1 = 0;
+    for(int i=0; i < diff1->m_numBits; ++i)
+        answer.set1 += diff1->m_filter[i];
+
+    answer.set1 = answer.set1 / set1.m_numHash;
+    answer.time = time.elapsed();
+    return answer;
+}
+
+SetDifference::Answer SetDifference::methodTwo( const QList<QString>& set1, const CountBloomFilter& set2 )
+{
+    QTime time;
+    time.start();
+    SetDifference::Answer answer;
+
+    //Copy List for local Modification
+    QList<QString> temp;
+
+    for(QString item : set1)
+    {
+        if(!temp.count(item))
+        {
+            int diff = set1.count(item) - set2.testElement(item);
+//            printf("%d:%d,", diff, set2.testElement(item));
+            answer.set1 += (diff > 0 ? diff : 0);
+            temp.append(item);
+        }
+    }
 
     answer.time = time.elapsed();
     return answer;

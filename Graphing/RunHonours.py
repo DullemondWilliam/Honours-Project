@@ -4,23 +4,21 @@ import matplotlib.pyplot as plt
 import re
 import csv
 import time
+from math import ceil
 
-DATA_POINTS = 20
+DATA_POINTS = 50
 
 
 def callBloomFilter(filterSize, hashes, set1Size, set2Diff, setDiff):
     cmd = ["C:\\Users\\William\\Documents\\Honours\\Bloomfilter\\release\\Honours.exe", '-b',
            filterSize, set1Size, str(int(set1Size) + int(set2Diff)), setDiff, hashes]
-
-    output = str(check_output(cmd).decode('UTF-8'))
-    print(output)
-    # print(re.findall(r'\d+', output))
-    return re.findall(r'\d+', output)
+    print("\t  " + check_output(cmd).decode('UTF-8'))
+    return re.findall(r'\d+', str(check_output(cmd).decode('UTF-8')))
 
 
 def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
     # Determine Graph Labels and Title
-    yLabel = "Time" if measuring == 1 else "Accuracy %"
+    yLabel = "Time (ms)" if measuring == 1 else "Error Percent (%)"
     xLabel = ""
     arr = []
     if type(filterSize) == list:
@@ -28,7 +26,7 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
         xLabel = "Filter Size"
     elif type(hashes) == list:
         arr = hashes
-        xLabel = "Hashes"
+        xLabel = "# of Hashes"
     elif type(set1Size) == list:
         arr = set1Size
         xLabel = "Set Size"
@@ -37,9 +35,9 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
         xLabel = "Set Size Diff"
     elif type(setDiff) == list:
         arr = setDiff
-        xLabel = "Difference Count"
+        xLabel = "Size of Difference"
     title = xLabel + str(arr) + " by " + yLabel
-
+    print(title)
     # Start CSV and write first line
     writer = csv.writer(open("results//" + title + ".csv", 'w', newline='' ))
     writer.writerow(["", "Regular", "Method1", "Method2"])
@@ -51,7 +49,7 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
     meth2 = []
 
     # The Main Loop Iterate through the designated variable
-    for i in list(range(int(arr[0]), int(arr[1]), round(abs(int(arr[0]) - int(arr[1])) / DATA_POINTS))):
+    for i in list(range(int(arr[0]), int(arr[1]), ceil(abs(int(arr[0]) - int(arr[1])) / DATA_POINTS))):
         xAxis.append(i)
         # Call BloomFilter Function and save result
         result = callBloomFilter(str(i) if type(filterSize) == list else filterSize,
@@ -60,14 +58,12 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
                                  str(i) if type(set2SizeDiff) == list else set2SizeDiff,
                                  str(i) if type(setDiff) == list else setDiff)
 
-        # print(result)
         info = [i, result[0 + measuring], result[2 + measuring], result[4 + measuring]]
         writer.writerow(info)
 
         regAxis.append(0)
         meth1.append(result[2 + measuring] if measuring else (1-(float(result[2])/float(i if type(setDiff) == list else result[measuring]))) * 100)
         meth2.append(result[4 + measuring] if measuring else (1-(float(result[4])/float(i if type(setDiff) == list else result[measuring]))) * 100)
-        time.sleep(1)
 
     fig, ax = plt.subplots()
 
@@ -77,8 +73,8 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
 
     desc = ("" if type(filterSize) == list else "M: " + filterSize + "\n") + \
            ("" if type(hashes) == list else "H: " + ("optimal" if hashes == '-h' else hashes) + "\n") + \
-           ("" if type(set1Size) == list or type(set2SizeDiff) == list else "|A|: " + set1Size + "\n" + \
-                                                "|B|: " + str(int(set1Size) - int(set2SizeDiff)) + "\n") + \
+           ("" if type(set1Size) == list or type(set2SizeDiff) == list else
+            "|A|: " + set1Size + "\n" + "|B|: " + str(int(set1Size) - int(set2SizeDiff)) + "\n") + \
            ("" if type(setDiff) == list else "|C|: " + setDiff + "\n")
     desc = desc[:-1]
 
@@ -99,10 +95,7 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
     plt.gcf().clear()
     fig.clear()
     ax.clear()
-    # plt.close()
-
-# Method One
-
+    plt.close()
 
 # # # Accuracy over increase in Difference
 # createCSV("100000", "-h", "10000", 0, ["1", "10000"], 0)
@@ -122,20 +115,10 @@ def createCSV(filterSize, hashes, set1Size, set2SizeDiff, setDiff, measuring):
 # createCSV(["10000", "1000000"], "-h", "100000", "0", "10000", 1)
 # #
 # # # Time over increase in |A| and |B|
-createCSV("100000", "-h", ["1000", "1000000"], "0", "1000", 1)
+# createCSV("100000", "-h", ["1000", "1000000"], "0", "1000", 1)
 
-
+createCSV("100000", "-h", "10000", 0, ["1", "10000"], 0)
 
 #####################################################
 # # # Accuracy over increase in |A| and |B|
 # createCSV("100000", "-h", ["100", "10000"], "0", "100", 0)
-
-
-
-# createCSV(["10000", "1000000"], "3", "1000", "0", "600", 0)
-# createCSV("1000000", ["1", "500"], "10000", "0", "10000", 0)
-# createCSV("100000", "-h", ["1000", "10000"], "0", "1000", 0)
-# createCSV("100000", "-h", "10000", ["-100", "100"], "1000", 0)
-
-# createCSV(filterSize, hashes, set1Size, set2diff, setDiff, measuring):
-

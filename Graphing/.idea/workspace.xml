@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/RunHonours.py" line="53" />
-    <bookmark url="file://$PROJECT_DIR$/RunHonours.py" line="75" />
+    <bookmark url="file://$PROJECT_DIR$/RunHonours.py" line="51" />
+    <bookmark url="file://$PROJECT_DIR$/RunHonours.py" line="71" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e1941a5-7719-4dcb-8f97-818df138c47b" name="Default" comment="" />
@@ -18,8 +18,8 @@
       <file leaf-file-name="RunHonours.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RunHonours.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -27,15 +27,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Set Size['1000', '1000000'] by Time.png" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Results/Set Size['1000', '1000000'] by Time.png">
+      <file leaf-file-name="Filter Size['1000', '10000'] by Error Percent (%).png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '10000'] by Error Percent (%).png">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Set Size['1000', '100000'] by Time.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FinalResults/Set Size['1000', '100000'] by Time.csv">
+      <file leaf-file-name="Filter Size['1000', '100000'] by Error Percent (%).png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '100000'] by Error Percent (%).png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Filter Size['1000', '100000'] by Error Percent (%).csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '100000'] by Error Percent (%).csv">
           <provider selected="true" editor-type-id="csv-text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -44,24 +51,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Filter Size['10000', '1000000'] by Time.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['10000', '1000000'] by Time.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Filter Size['1000', '10000'] by Accuracy %.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '10000'] by Accuracy %.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TestBloomFilters.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TestBloomFilters.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
+            <state relative-caret-position="541">
               <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -70,8 +63,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BloomFilterFailures.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FinalResults/BloomFilterFailures.png">
+      <file leaf-file-name="# of Hashes['1', '500'] by Time (ms).png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '500'] by Time (ms).png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="# of Hashes['1', '500'] by Time (ms).csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '500'] by Time (ms).csv">
+          <provider selected="true" editor-type-id="csv-text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Size of Difference['1', '10000'] by Error Percent (%).png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Results/Size of Difference['1', '10000'] by Error Percent (%).png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="# of Hashes['1', '20'] by Error Percent (%).png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '20'] by Error Percent (%).png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="# of Hashes['1', '110'] by Error Percent (%).png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '110'] by Error Percent (%).png">
           <provider selected="true" editor-type-id="images">
             <state />
           </provider>
@@ -106,12 +130,14 @@
         <option value="$PROJECT_DIR$/AccuracyBYHashes.py" />
         <option value="$PROJECT_DIR$/Results/Difference Count['100', '600'] by Difference.csv" />
         <option value="$PROJECT_DIR$/TestBloomFilters.py" />
+        <option value="$PROJECT_DIR$/Numbers.py" />
         <option value="$PROJECT_DIR$/RunHonours.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="815" />
+    <option name="y" value="142" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
   </component>
@@ -149,6 +175,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -159,23 +187,16 @@
             <path>
               <item name="Graphing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Graphing" type="462c0819:PsiDirectoryNode" />
-              <item name="FinalResults" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Graphing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Graphing" type="462c0819:PsiDirectoryNode" />
               <item name="Results" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Program Files/Python36/Lib/site-packages/matplotlib/pyplot.py" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/William/Documents/Honours/Graphing/RunHonours.py" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -213,6 +234,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Honours" />
       <option name="SCRIPT_NAME" value="C:\Users\William\Documents\Honours\Graphing\RunHonours.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <configuration name="Numbers" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Honours" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Numbers.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -268,18 +306,20 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.AccuracyBYHashes" />
       <item index="1" class="java.lang.String" itemvalue="Python.a1" />
       <item index="2" class="java.lang.String" itemvalue="Python.RunHonours" />
       <item index="3" class="java.lang.String" itemvalue="Python.TestBloomFilters" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Numbers" />
     </list>
     <recent_temporary>
-      <list size="4">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.RunHonours" />
-        <item index="1" class="java.lang.String" itemvalue="Python.TestBloomFilters" />
-        <item index="2" class="java.lang.String" itemvalue="Python.AccuracyBYHashes" />
-        <item index="3" class="java.lang.String" itemvalue="Python.a1" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Numbers" />
+        <item index="2" class="java.lang.String" itemvalue="Python.TestBloomFilters" />
+        <item index="3" class="java.lang.String" itemvalue="Python.AccuracyBYHashes" />
+        <item index="4" class="java.lang.String" itemvalue="Python.a1" />
       </list>
     </recent_temporary>
   </component>
@@ -297,9 +337,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="974" height="1047" extended-state="0" />
+    <frame x="815" y="142" width="974" height="1047" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35448578" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4091904" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -355,29 +396,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Results/Difference Count['100', '600'] by Difference.csv" />
-    <entry file="file://$PROJECT_DIR$/TestBloomFilters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RunHonours.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Set Two Size['1000', '100000'] by Difference.png" />
-    <entry file="file://$PROJECT_DIR$/Results/Difference Count['100', '600'] by Difference.csv" />
     <entry file="file://$PROJECT_DIR$/RunHonours.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -388,211 +406,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RunHonours.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RunHonours.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files/Python36/Lib/site-packages/matplotlib/image.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="1302" column="4" lean-forward="false" selection-start-line="1302" selection-start-column="4" selection-end-line="1302" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Filter_1000000_Hashes_['0', '30']_Size1_10000_Size2_19000_setDiff_100.csv" />
-    <entry file="file://$PROJECT_DIR$/Results/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Results/Filter_1000000_Hashes_['1', '30']_Size1_10000_Size2_19000_setDiff_100.csv" />
-    <entry file="file://$PROJECT_DIR$/Results/Filter_1000000_Hashes_['1', '30']_Size1_10000_Size2_5000_setDiff_100.csv" />
-    <entry file="file://$PROJECT_DIR$/a1.py" />
-    <entry file="file://C:/Program Files/Python36/Lib/site-packages/matplotlib/pyplot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="2317" column="7" lean-forward="false" selection-start-line="2317" selection-start-column="7" selection-end-line="2317" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.png" />
-    <entry file="file://$PROJECT_DIR$/Results/Hashes['1', '32'] by Difference.png" />
-    <entry file="file://$PROJECT_DIR$/Results/Difference Count['100', '600'] by Difference.csv" />
-    <entry file="file://$PROJECT_DIR$/Results/Filter Size['100', '1000000'] by Difference.csv" />
-    <entry file="file://$PROJECT_DIR$/Results/Filter Size['100', '1000000'] by Difference.png" />
-    <entry file="file://$PROJECT_DIR$/FinalResults/BloomFilterFailures.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Set Two Size['1000', '100000'] by Difference.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://C:/Program Files/Python36/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7820">
-          <caret line="460" column="0" lean-forward="false" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TestBloomFilters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '1000000'] by Difference.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Set One Size['1000', '10000'] by Difference.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Set Two Size['1000', '100000'] by Difference.csv">
-      <provider editor-type-id="csv-text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/FinalResults/Set Size['1000', '100000'] by Time.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1120166012/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11889">
-          <caret line="5109" column="8" lean-forward="false" selection-start-line="5109" selection-start-column="8" selection-end-line="5109" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Difference Count['10', '100000'] by deviation from Difference %.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Difference Count['10', '100000'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Difference Count['1', '100000'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Difference Count['1', '10000'] by deviation from Difference %.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Difference Count['1', '10000'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Difference Count['1', '10000'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Hashes['1', '100'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Hashes['1', '200'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Hashes['1', '200'] by deviation from Difference %.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Hashes['1', '120'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Hashes['1', '110'] by deviation from Difference %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '100000'] by Accuracy %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '20000'] by Accuracy %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '10000'] by Accuracy %.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '100000'] by Accuracy %.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="422">
-          <caret line="48" column="19" lean-forward="true" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '100000'] by Time.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="-394">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '100000'] by Time.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '100000'] by Time.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -602,7 +424,101 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/TestBloomFilters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinalResults/BloomFilterFailures.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['10000', '1000000'] by Time.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinalResults/Filter Size['1000', '10000'] by Accuracy %.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FinalResults/BloomFilterFailures.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input-02.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/FinalResults/Set Size['1000', '100000'] by Time.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Program Files/Python36/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="215" column="8" lean-forward="false" selection-start-line="215" selection-start-column="8" selection-end-line="215" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input-03.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3777">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input-00.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3794">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/input-01.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3794">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Numbers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="19" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.2/system/python_stubs/-1120166012/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5597">
+          <caret line="5477" column="8" lean-forward="false" selection-start-line="5477" selection-start-column="8" selection-end-line="5477" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '20'] by Error Percent (%).csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -610,22 +526,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FinalResults/Set Size['1000', '100000'] by Time.png">
+    <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '110'] by Error Percent (%).csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Filter Size['10000', '1000000'] by Time (ms).csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Filter Size['10000', '1000000'] by Time (ms).png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RunHonours.py">
+    <entry file="file://$PROJECT_DIR$/Results/Set Size['1000', '1000000'] by Time (ms).csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Size of Difference['1', '10000'] by Error Percent (%).csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '500'] by Time (ms).csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '110'] by Error Percent (%).png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '20'] by Error Percent (%).png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/# of Hashes['1', '500'] by Time (ms).png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '100000'] by Error Percent (%).csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '10000'] by Error Percent (%).png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Filter Size['1000', '100000'] by Error Percent (%).png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestBloomFilters.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="541">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Results/Set Size['1000', '1000000'] by Time.png">
+    <entry file="file://$PROJECT_DIR$/RunHonours.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Results/Size of Difference['1', '10000'] by Error Percent (%).png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>

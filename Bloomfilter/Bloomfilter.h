@@ -16,8 +16,7 @@ public:
     bool testElement( const QString& test );
     bool addElement( const QString& add );
 
-    QByteArray xorByteArray( const QByteArray& a1, const QByteArray& a2 );
-    void  printFilter();
+    void  printFilter() const;
 
     QBitArray m_filter;
 
@@ -26,7 +25,7 @@ public:
     int m_numElements;
 
     double m_sectionSize;
-    double m_fraction;
+    double m_fraction;  // Fraction allows the hashes to be divided by M
 
 };
 
